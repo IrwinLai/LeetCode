@@ -4,6 +4,23 @@ class Solution(object):
         :type S: str
         :rtype: str
         """
+        tem = 0
+        res = []
+        for i in S:
+            if tem == 0 and i == '(':
+                tem += 1
+            elif tem == 1 and i == ')':
+                tem -= 1
+            elif i == '(':
+                tem += 1
+                res.append(i)
+            else:
+                tem -= 1
+                res.append(i)
+        return ''.join(res)
+        
+        
+        '''
         l = list(S)
         m = [1 if l[i] == '(' else -1 for i in range(len(l))]
         
@@ -19,3 +36,4 @@ class Solution(object):
         r = ['(' if w[i] == 1 else ')' for i in range(len(w))]
         r = ''.join(r)
         return r
+        '''
